@@ -1,0 +1,11 @@
+import json
+
+def function(json_str):
+
+    slovar = json.loads(json_str)
+    return slovar
+
+json_slovar = '{"name": "Aboba", "age": 12, "city": "Dno"}'
+result = function(json_slovar)
+
+print(result)

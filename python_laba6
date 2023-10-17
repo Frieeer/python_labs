@@ -1,0 +1,23 @@
+import sqlite3
+
+def function(table_name, data_list):
+    conn = sqlite3.connect(r"C:\Users\mizgu\Desktop\file.db")
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM Users")
+    users = cursor.fetchall()
+
+    print("Users:")
+
+    for user in users:
+        print(user)
+
+    for data in data_list:
+        cursor.execute(f"INSERT INTO {table_name} (First_name, Last_name, Location) VALUES ('{data[0]}', '{data[1]}', '{data[2]}')")
+
+    conn.commit()
+    conn.close()
+
+table_name = 'Users'
+data_list = [["first_name1", "second_name1", "location1"], ["first_name2", "second_name2", "location2"], ["first_name3", "second_name3", "location3"]]
+function(table_name, data_list) 

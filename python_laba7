@@ -1,0 +1,11 @@
+class input_word_upper:
+
+    def get_string(self, input_word):
+        self.input_word = input_word
+
+    def print_upper_string(self):
+        print(self.input_word.upper())
+
+upper = input_word_upper()
+upper.get_string("test word")
+upper.print_upper_string()

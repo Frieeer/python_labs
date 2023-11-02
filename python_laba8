@@ -1,0 +1,23 @@
+from PIL import Image
+
+def function(image_paths):
+    images = []
+    width = 0
+    height = 0
+
+    for path in image_paths:
+        image = Image.open(path)
+        width += image.width
+        height = image.height
+        images.append(image)
+
+    new_image = Image.new('RGB', (width, height))
+
+    x_offset = 0
+    for image in images:
+        new_image.paste(image, (x_offset, 0))
+        x_offset += image.width
+
+    new_image.save(r'C:\Users\mizgu\Desktop\newimage.jpg')
+
+function([r'C:\Users\mizgu\Desktop\image1.jpg', r'C:\Users\mizgu\Desktop\image2.jpg', r'C:\Users\mizgu\Desktop\image3.jpg'])

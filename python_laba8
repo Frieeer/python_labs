@@ -7,16 +7,16 @@ def function(image_paths):
 
     for path in image_paths:
         image = Image.open(path)
-        width += image.width
-        height = image.height
+        width = image.width
+        height += image.height
         images.append(image)
 
     new_image = Image.new('RGB', (width, height))
 
-    x_offset = 0
+    y = 0
     for image in images:
-        new_image.paste(image, (x_offset, 0))
-        x_offset += image.width
+        new_image.paste(image, (0, y))
+        y += image.height
 
     new_image.save(r'C:\Users\mizgu\Desktop\newimage.jpg')
 

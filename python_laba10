@@ -1,0 +1,15 @@
+import matplotlib.pyplot as plt
+import random
+
+def function_random_level(years=100):
+
+    sea_level = [random.uniform(0, 20) for _ in range(years)]
+
+    plt.scatter(range(1923, 1923 + years), sea_level, color='blue', alpha=0.7)
+
+    plt.xlabel('Год')
+    plt.ylabel('Изменение уровня моря(в см)')
+
+    plt.show()
+
+function_random_level()
